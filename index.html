@@ -9,10 +9,12 @@
 
 </head>
 <body>
+  <div class="header">
     <header> 
+      <img src="./assets/images/husky.jpg" alt="logo" />
         <h1>WELCOME TO HUSKY 1</h1>         
     </header>
-
+  </div>
 <div class="buttons">
     <button id="myBtn" class="btn1">SIGN IN</button>
     <button id="myBtn2" class="btn1">SIGN UP!!!</button>
@@ -47,8 +49,22 @@
           <div class="modal-header2">
             <span class="close2">&times;</span>
             <div class="modal-body2">
-              <p>Testing Some other text in the Modal Body</p>
-              <p>Testing Some more other text...</p>
+              <form>
+                <label for="email">Email Address:</label>
+                <input type="email" placeholder="Email Address" name="email" id="email" class="form-input" />
+              </br>
+            </br>
+                <label for="password">Password:</label>
+                <input aria-label="enter password" type="text" placeholder="Password" name="name" id="name" class="form-input"/>
+              </br>
+            </br>
+                <label for="confirm password">Confirm Password:</label>
+                <input aria-label="confirm password" type="text" placeholder="Confirm Password" name="name" id="name" class="form-input"/>
+          </br>
+        </br> 
+                <button id="sigup" class="btn2">SIGN UP!!!</button>
+                <button id="cancel" class="btn2">CANCEL</button>
+            </form>
             </div>
           </div>
         </div>

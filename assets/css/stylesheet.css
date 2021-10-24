@@ -17,6 +17,13 @@
       background-position: 80%;
   }
 
+  .header img {
+    float: left;
+    width: 150px;
+    height: 100px;
+    background: #555;
+  }
+
   h1 {
       padding: 20px 35px;
       background-color: var(--tertiary-color);
@@ -100,7 +107,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-body, .modal-body2 { 
 	padding: 10px 16px;
-	background-color: #4b57c4;
+	background-color: #1066e7;
 }
 
 /* Add Animation */
