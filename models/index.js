@@ -4,7 +4,6 @@ const Category = require("./Category");
 const Tag = require("./Tags");
 const Comment = require("./Comment");
 const PostTag = require("./PostTags");
-const Tag = require("./Tags");
 
 Post.hasMany(Comment, {
   foreignKey: "post_id",
@@ -14,7 +13,7 @@ Post.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Post.belongsToMany(Category, {
+Post.belongsTo(Category, {
   foreignKey: "category_id",
 });
 
@@ -48,3 +47,4 @@ Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 
+module.exports = { Post, User, Comment, Tag, Category, PostTag};
