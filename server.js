@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+app.get('/', function (req, res) {
+  res.render('home');
+})
+
 // turn on routes
 app.use(routes);
 
