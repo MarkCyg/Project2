@@ -73,4 +73,17 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+    Post.create({
+        title: req.body.title,
+        // EDIT THIS TO USE AUTHENTICATION
+        user_id: 1
+    })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
 module.exports = router;
