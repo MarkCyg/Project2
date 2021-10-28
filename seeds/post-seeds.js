@@ -2,7 +2,6 @@ const { Post } = require("../models");
 
 // Title is the question that user posts
 
-//TODO: Change the "title" under Post to be "post_title"
 const postData = [
   {
     post_text: "How to connect HTML with my CSS?",
