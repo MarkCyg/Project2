@@ -7,7 +7,7 @@ router.get('', (req, res) => {
    Post.findAll({
        attributes: [
            'id',
-           'title',
+           'post_text',
            'user_id',
            'created_at',
        ],
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'title',
+            'post_text',
             'user_id',
             'created_at'
         ],
@@ -75,7 +75,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Post.create({
-        title: req.body.title,
+        post_text: req.body.post_text,
+        category_id: req.body.category_id,
+        tag_id: req.body.tag_id,
         // EDIT THIS TO USE AUTHENTICATION
         user_id: 1
     })
@@ -85,5 +87,47 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     })
 })
+
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
+            post_text: req.body.post_text
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+        }
+        res.json(dbPostData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+        .then(dbPostData => {
+          if (!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+          }
+          res.json(dbPostData);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+});
 
 module.exports = router;

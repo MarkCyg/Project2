@@ -11,14 +11,28 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
+        post_text: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
+                key: 'id'
+            }
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'category',
+                key: 'id'
+            }
+        },
+        tag_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'tags',
                 key: 'id'
             }
         }
