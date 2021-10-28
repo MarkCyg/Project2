@@ -1,6 +1,7 @@
-const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Post, User, Comment, Tag, Category, PostTag } = require('../../models');
+const router = require("express").Router();
+const sequelize = require("../../config/connection");
+const { Post, User, Comment, Tag, Category, PostTag } = require("../../models");
+
 
 
 router.get('', (req, res) => {
@@ -32,13 +33,24 @@ router.get('', (req, res) => {
        console.log(err);
        res.status(500).json(err);
    });
+
 });
 
-router.get('/:id', (req, res) => {
-    Post.findOne({
-        where: {
-            id: req.params.id
+router.get("/:id", (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "title", "user_id", "created_at"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
         },
+
         attributes: [
             'id',
             'post_text',
@@ -66,12 +78,15 @@ router.get('/:id', (req, res) => {
             return;
         }
         res.json(dbPostData);
+
+   
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
+
 
 router.post('/', (req, res) => {
     Post.create({
@@ -131,3 +146,4 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+
