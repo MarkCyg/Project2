@@ -3,7 +3,6 @@ const sequelize = require("../../config/connection");
 const { Post, User, Comment, Tag, Category, PostTag } = require("../../models");
 
 
-
 router.get('', (req, res) => {
    Post.findAll({
        attributes: [
@@ -37,7 +36,7 @@ router.get('', (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Post.findOne({
+ Post.findOne({
     where: {
       id: req.params.id,
     },
@@ -71,7 +70,7 @@ router.get("/:id", (req, res) => {
                 attributes: ['username']
             }
         ]
-    })
+    }]
     .then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No Post with that id Exists' });
@@ -84,7 +83,7 @@ router.get("/:id", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    });
+    }) 
 });
 
 
@@ -146,4 +145,3 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-
