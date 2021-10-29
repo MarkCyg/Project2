@@ -18,3 +18,7 @@ const categoryData = [
     category_name: "mySQL",
   },
 ];
+
+const seedCategory = () => Category.bulkCreate(categoryData);
+
+module.exports = seedCategory;
