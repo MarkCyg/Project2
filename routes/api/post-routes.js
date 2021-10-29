@@ -3,6 +3,7 @@ const sequelize = require("../../config/connection");
 const { Post, User, Comment, Tag, Category, PostTag } = require("../../models");
 
 
+
 router.get('', (req, res) => {
    Post.findAll({
        attributes: [
@@ -36,7 +37,7 @@ router.get('', (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
- Post.findOne({
+  Post.findOne({
     where: {
       id: req.params.id,
     },
@@ -83,8 +84,9 @@ router.get("/:id", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    }) 
-});
+    })
+})
+})
 
 
 router.post('/', (req, res) => {
