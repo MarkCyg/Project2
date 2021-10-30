@@ -32,6 +32,6 @@ const commentData = [
     post_id: 5,
   },
 ];
-const seedComment = () => Category.bulkCreate(commentData);
+const seedComment = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComment;

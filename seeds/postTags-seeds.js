@@ -23,6 +23,6 @@ const postTagData = [
   },
 ];
 
-const seedPostTag = () => Category.bulkCreate(postTagData);
+const seedPostTag = () => PostTag.bulkCreate(postTagData);
 
 module.exports = seedPostTag;

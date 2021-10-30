@@ -9,7 +9,7 @@ const categoryData = [
     category_name: "git",
   },
   {
-    category_name: "git",
+    category_name: "gitlab",
   },
   {
     category_name: "Other",

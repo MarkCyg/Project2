@@ -90,7 +90,9 @@ router.post('/login', (req, res) => {
 })
 
 //DELETE user route
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id',
+// withAuth,
+(req, res) => {
     User.destroy({
         where: {
             id: req.params.id
@@ -106,3 +108,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+module.exports = router;
