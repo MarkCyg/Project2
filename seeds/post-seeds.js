@@ -19,7 +19,7 @@ const postData = [
     post_text: "Why do I need to put some files into .gitignore?",
     user_id: 3,
     category_id: 3,
-    tag_id: 3,
+    tag_id: 5,
   },
   {
     post_text: "What are some differences between MVP and MVC?",
@@ -31,8 +31,10 @@ const postData = [
     post_text: "How to import my mySQL file?",
     user_id: 5,
     category_id: 5,
-    tag_id: 5,
+    tag_id: 3,
   },
 ];
 
-module.exports = Post;
+const seedPost = () => Post.bulkCreate(postData);
+
+module.exports = seedPost;
