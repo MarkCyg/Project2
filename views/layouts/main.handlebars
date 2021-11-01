@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUSKY 1</title>
+    <title>Huskies Helping Huskies</title>
     <link rel="stylesheet" href="/stylesheets/style.css"/>
 
 </head>
@@ -12,11 +12,54 @@
   <div class="header">
     <header> 
       <img src="/images/husky.jpg" alt="" />
-        <h1>WELCOME TO HUSKY 1</h1>
-        {{!-- <a href="/login">login</a>          --}}
+        <h1>
+          Huskies Helping Huskies
+        </h1>
+        {{!-- <nav>
+        <a href="/login">login</a>
+        </nav>         --}}
     </header>
   </div>
-<div class="buttons">
+  <form class="login-form">
+  <div>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
+  </div>
+  <div>
+    <label for="password-login">password:</label>
+    <input type="password" id="password-login" />
+  </div>
+  <div>
+    <button type="submit">login</button>
+  </div>
+</form>
+
+<form class="signup-form">
+  <div>
+    <label for="username-signup">username:</label>
+    <input type="text" id="username-signup" />
+  </div>
+  <div>
+    <label for="email-signup">email:</label>
+    <input type="text" id="email-signup" />
+  </div>
+  <div>
+    <label for="password-signup">password:</label>
+    <input type="password" id="password-signup" />
+  </div>
+  <div>
+    <button type="submit">signup</button>
+  </div>
+</form>
+<script src="../../public/javascript/script.js"></script> 
+</body>
+</html>
+
+
+
+
+
+{{!-- <div class="buttons">
     <button id="myBtn" class="btn1" href="/login">SIGN IN</button>
     <button id="myBtn2" class="btn1">SIGN UP!!!</button>
 
@@ -71,7 +114,4 @@
         </div>
       </div>
     </div>
-    </div>
-<script src="../../public/javascript/script.js"></script> 
-</body>
-</html>
+    </div> --}}

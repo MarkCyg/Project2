@@ -13,10 +13,15 @@ const seedAll = async () => {
   await seedUser();
   console.log("\n-----Users SYNCED ------\n")
   await seedTag();
+  console.log("\n------Tags SYNCED ------\n")
   await seedCategory();
+  console.log("\n-------Categories SYNCED ------\n")
   await seedPost();
+  console.log("\n--------Posts SYNCED ------\n")
   await seedComments();
+  console.log("\n------Comments SYNCED -----\n")
   await seedPostTags
+  console.log("\n------PostTags SYNCED -----\n")
   
   process.exit(0);
 };
