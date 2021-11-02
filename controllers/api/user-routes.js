@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 //GET all users without password
 router.get('/', (req, res) => {
     User.findAll({
-        // attributes: { exclude: ['password'] }
+        attributes: { exclude: ['password'] }
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -55,7 +55,9 @@ router.get('/:id', (req, res) => {
 });
 
 //POST create user
-router.post('/', withAuth, (req, res) => {
+router.post('/',
+withAuth,
+ (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,

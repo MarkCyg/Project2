@@ -4,7 +4,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
-const session = require('session');
+const session = require('express-session');
 const { timeEnd } = require('console');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -29,7 +29,7 @@ const sess = {
     db: sequelize
   })
 };
-app.use(sess);
+app.use(session(sess));
 
 // turn on routes
 app.use(routes);
