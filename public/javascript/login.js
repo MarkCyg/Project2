@@ -26,7 +26,7 @@ async function signupFormHandler(event) {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   if (email && password && username) {
-      const response = await fetch('/api/users/', {
+      const response = await fetch('/api/users', {
           method: 'post',
           body: JSON.stringify({
               email,
@@ -37,7 +37,7 @@ async function signupFormHandler(event) {
       });
       if (response.ok) {
           if (document.location === 'http://project2.herokuapp.com/login' || 'localhost:3001/login') {
-              document.location.replace('/profile');
+              document.location.replace('/home');
           } else {
               alert(response.statusText);
           }
