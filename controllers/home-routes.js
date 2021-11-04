@@ -2,12 +2,10 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 
 router.get('/', (req, res) => {
-    console.log(req.session);
-  
-    // other logic...
-  });
+    res.render('home');
+})
 
-  router.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
       return;
@@ -15,4 +13,12 @@ router.get('/', (req, res) => {
   
     res.render('login');
   });
+
+// router.get('/login', (req, res) => {
+//     res.render('login');
+// })
+
+router.get('/home', (req, res) => {
+    res.render('home');
+})
 module.exports = router;

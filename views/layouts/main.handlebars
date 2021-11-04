@@ -9,9 +9,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
+
 <body>
-    <header> 
-      <img src="/images/husky.jpg" alt="" />
+      <header>
+        <img src="/images/husky.jpg" alt="" />
+      <h1 class="display-1">
+        <a href="/">Huskies Helping Huskies</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    {{!-- <header> 
+      
         <h1 class="display-1">
           Huskies Helping Huskies
         </h1>
@@ -19,13 +34,20 @@
         {{#if loggedIn}}
         <a href="/home">Home</a>
         <button id="logout" class="btn-no-style">logout</button>
+          {{#if loggedout}}
+          <a href="/"></a>
+          {{/if}}
         {{else}}
         <a href="/login">login</a>
         {{/if}}
       </nav>        
-    </header>
+    </header> --}}
+
     <main>
       {{{ body }}}
     </main>
+
+  <script src="/javascript/logout.js"></script>
+
 </body>
 </html>

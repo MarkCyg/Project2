@@ -85,6 +85,7 @@ router.post('/login', (req, res) => {
             email: req.body.email
         }
     }).then(dbUserData => {
+        console.log(dbUserData);
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that email address!' });
             return;
@@ -106,7 +107,9 @@ router.post('/login', (req, res) => {
 });
 
 //POST logout route
-router.post('/logout', withAuth, (req, res) => {
+router.post('/logout',
+withAuth,
+(req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
