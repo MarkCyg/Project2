@@ -29,5 +29,8 @@
     "sequelize": "^6.9.0",
     "static": "^2.0.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "electron": "^15.3.0"
+  }
 }

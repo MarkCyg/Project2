@@ -17,12 +17,13 @@
     <div class="wrapper">
       <header>
         <img src="/images/husky.jpg" alt="" />
-        <h1 class="display-1">
+        <a href="/" class="display-1">
           Huskies Helping Huskies
-        </h1>
+        </a>
         <nav>
           {{#if loggedIn}}
-            <a href="/home">home</a>
+            <a href="/profile">home</a>
+            <a href="/">Posts</a>
             <button id="logout" class="btn-no-style">logout</button>
           {{else}}
             <a class="loginStyle" href="/login">login</a>
@@ -30,19 +31,21 @@
         </nav>
       </header>
       <main>
+          <div class="pageDescription">
+            <p>
+              As Coding Bootcamp students we have many great resources available to us to be successful.
+              Resources such as our Instructor, our TAs, tutors, other classmates, as well as countless online
+              resources through google and other search engines. We wanted to create another type of site
+              that allows for communication from past students to help current students with material from the
+              course. Huskies Helping Huskies was created as another resource to give a better understanding
+              on what the course material is. You can make posts and comments on posts to give someone a better
+              understanding to help them make it through the course.
+            </p>
+          </div>        
         {{{body}}}
+  
       </main>
-      <div class="pageDescription">
-        <p>
-          As Coding Bootcamp students we have many great resources available to us to be successful.
-          Resources such as our Instructor, our TAs, tutors, other classmates, as well as countless online
-          resources through google and other search engines. We wanted to create another type of site
-          that allows for communication from past students to help current students with material from the
-          course. Huskies Helping Huskies was created as another resource to give a better understanding
-          on what the course material is. You can make posts and comments on posts to give someone a better
-          understanding to help them make it through the course.
-        </p>
-    </div>
+
       <footer class="footer">
         Thanks for visiting!
       </footer>
@@ -50,9 +53,11 @@
 
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
+      
     {{/if}}
-
-
+<script src="../../preload.js"></script>
+  <script src="../../main.js"></script>
+  
   </body>
 
 </html>
