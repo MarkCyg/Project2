@@ -13,17 +13,12 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      if (
-        document.location === "http://project2.herokuapp.com/login" ||
-        document.location === "localhost:3001/login"
-      ) {
-        document.location.replace("/home");
+        document.location.replace("/profile");
       } else {
         alert(response.statusText);
       }
     }
   }
-}
 
 async function signupFormHandler(event) {
   event.preventDefault();
@@ -45,7 +40,7 @@ async function signupFormHandler(event) {
         document.location === "http://project2.herokuapp.com/login" ||
         "localhost:3001/login"
       ) {
-        document.location.replace("/home");
+        document.location.replace("/profile");
       } else {
         alert(response.statusText);
       }

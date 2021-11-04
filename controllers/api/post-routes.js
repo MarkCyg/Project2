@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
    Post.findAll({
        attributes: [
            'id',
+           'post_title',
            'post_text',
            'user_id',
            'created_at',
@@ -41,7 +42,12 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "user_id", "created_at"],
+    attributes: [
+        "id",
+        "post_title",
+        "post_text",
+        "user_id",
+        "created_at"],
     include: [
       {
         model: Comment,
@@ -49,29 +55,14 @@ router.get("/:id", (req, res) => {
         include: {
           model: User,
           attributes: ["username"],
-        },
-
-        attributes: [
-            'id',
-            'post_text',
-            'user_id',
-            'created_at'
-        ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    }]
+        }
+    },
+    {
+        model: User,
+        attributes: ['username']
+    }
+    ]
+    })
     .then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No Post with that id Exists' });
@@ -85,12 +76,12 @@ router.get("/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     })
-    })
 })
 
 router.post('/', withAuth, (req, res) => {
     Post.create({
         post_text: req.body.post_text,
+        post_title: req.body.post_title,
         category_id: req.body.category_id,
         tag_id: req.body.tag_id,
         user_id: req.session.user_id
