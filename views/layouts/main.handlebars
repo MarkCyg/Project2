@@ -1,53 +1,45 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Huskies Helping Huskies</title>
-    <link rel="stylesheet" href="/stylesheets/style.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
+    <div class="wrapper">
       <header>
         <img src="/images/husky.jpg" alt="" />
-      <h1 class="display-1">
-        <a href="/">Huskies Helping Huskies</a>
-      </h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    {{!-- <header> 
-      
         <h1 class="display-1">
           Huskies Helping Huskies
         </h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/home">Home</a>
-        <button id="logout" class="btn-no-style">logout</button>
-          {{#if loggedout}}
-          <a href="/"></a>
+        <nav>
+          {{#if loggedIn}}
+            <a href="/home">home</a>
+            <button id="logout" class="btn-no-style">logout</button>
+          {{else}}
+            <a href="/login">login</a>
           {{/if}}
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>        
-    </header> --}}
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
+      <footer>
+        Thanks for visiting!
+      </footer>
+    </div>
 
-    <main>
-      {{{ body }}}
-    </main>
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
 
-  <script src="/javascript/logout.js"></script>
-
-</body>
 </html>
