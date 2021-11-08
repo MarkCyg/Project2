@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-
-router.get('/', (req, res) => {
-    res.render('home')
-})
-
-router.get('/login', (req, res) => {
-    res.render('login');
-})
-
-module.exports = router;
-=======
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Category, Comment, Post, PostTag, Tag, User } = require("../models");
@@ -113,4 +99,3 @@ router.get("/home", (req, res) => {
   res.render("home");
 });
 module.exports = router;
->>>>>>> 566616a901ab890cd1c3877b40c4d50a7676adbb
