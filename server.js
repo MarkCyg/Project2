@@ -30,9 +30,7 @@ const sess = {
     db: sequelize,
   }),
 };
-app.use(session(sess)({
-  secret: process.env.SESSION_SECRET
-}));
+app.use(session(sess));
 
 // turn on routes
 app.use(routes);
