@@ -30,11 +30,14 @@ const sess = {
     db: sequelize,
   }),
 };
-app.use(session(sess));
+app.use(session(sess)({
+  secret: process.env.SESSION_SECRET
+}));
 
 // turn on routes
 app.use(routes);
-app.use(require("./controllers/"));
+app.use(require("./controllers/")
+);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
