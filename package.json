@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "web: npm start",
+    "start": "web: bin/www",
     "seeds": "node seeds/index.js",
     "heroku-postbuild": "npm run build"
   },
